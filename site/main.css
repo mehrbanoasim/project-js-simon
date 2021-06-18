@@ -45,14 +45,34 @@ html {
   background-color: #21BA45;
 }
 
+.simon-button.highlight1{
+  background: lightgreen;
+}
+
 .simon-button.red {
   background-color: #DB2828;
+}
+
+.simon-button.highlight2{
+  background-color: coral;
 }
 
 .simon-button.yellow {
   background-color: #FBBD08;
 }
 
+.simon-button.highlight3{
+  background-color: rgb(248, 248, 164);
+}
+
 .simon-button.blue {
   background-color: #2185D0;
+}
+
+.simon-button.highlight4{
+  background-color: lightblue;
+}
+
+.order{
+  text-align: center;
 }
