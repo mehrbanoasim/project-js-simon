@@ -81,6 +81,22 @@ html {
   text-align: center;
 }
 
-.result{
+/*.result{
   text-align: center;
 }
+.restart{
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+}
+
+#reset{
+  background-color: cornflowerblue;
+  border-radius: 4px;
+  padding: 15px 32px;
+  border: none;
+  box-shadow: 0 15px 60px rgba(0, 0, 0, 0.5);
+  font-size: 17px;
+  cursor: pointer;
+  color: azure;
+}*/
