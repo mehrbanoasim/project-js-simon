@@ -5,16 +5,18 @@ let redBox= document.getElementById("red");
 let yellowBox= document.getElementById("yellow");
 let blueBox= document.getElementById("blue");
 
-
+bigBox = document.querySelector('.simon-container');
+start = document.querySelector('.start');
+orderSentence = document.querySelector('.order');
+startAgain = document.querySelector('.restart');
 
 let listOriginal = ['green','red','yellow','blue'];
 let listPlayer = [];
 let listColor = [];
 
-randomColor = listOriginal[Math.floor(Math.random()* listOriginal.length)];
-listColor.push(randomColor);
+/*randomColor = listOriginal[Math.floor(Math.random()* listOriginal.length)];
+listColor.push(randomColor);*/
 
-bigBox = document.querySelector('.simon-container');
 
 function createColor(){
     randomColor = listOriginal[Math.floor(Math.random()* listOriginal.length)]
@@ -55,6 +57,28 @@ function pairUp(listPlayer, listColor){
     }
 }*/
 
+function remainClicks(){
+    remaining = listColor.length - listPlayer.length;
+    document.querySelector('.clicks').innerHTML = `Remaining clicks: ${remaining}`;
+}
+
+function startGame(){
+    start.classList.add('hidden');
+    orderSentence.classList.remove('hidden');
+    listColor.push(createColor());
+    document.querySelector('#colors').innerHTML = listColor;
+    remainClicks();
+}
+
+function resetGame(){
+    listColor = [];
+    listPlayer = [];
+    start.classList.remove('hidden');
+    orderSentence.classList.add('hidden');
+    startAgain.classList.add('hidden');
+    document.querySelector('.result').innerHTML = "";
+    document.querySelector('.clicks').innerHTML = "";
+}
 
 function bigCompare(tile){
     listPlayer.push(tile);
@@ -62,25 +86,40 @@ function bigCompare(tile){
     for(i=0; i<listPlayer.length; i++) {
         if(listPlayer[i] === listColor[i]){
             document.querySelector('.result').innerHTML = 'Yes!';
+            remainClicks();
             if(listPlayer.length === listColor.length){
-                listPlayer = []
-                document.querySelector('.result').innerHTML = 'Congrats! Next round!';
-                listColor.push(createColor());
-                document.querySelector('#colors').innerHTML = listColor;
+                if(listPlayer[listPlayer.length - 1] === listColor[listColor.length - 1]){
+                    listPlayer = []
+                    document.querySelector('.result').innerHTML = 'Congrats! Next round!';
+                    listColor.push(createColor());
+                    document.querySelector('#colors').innerHTML = listColor;
+                    remainClicks();
+                }
+                else{
+                    document.querySelector('.result').innerHTML = 'Wrong tile!';
+                    startAgain.classList.remove('hidden');
+                }
+                
             }
         }
         else{
             document.querySelector('.result').innerHTML = 'Wrong tile!';
-            return;
+            startAgain.classList.remove('hidden');
         }
     }
 }
 
-document.querySelector('#colors').innerHTML = listColor;
+start.addEventListener('click', function(){
+    startGame();
+})
 
 bigBox.addEventListener('click', function(event){
     tile = event.target.id;
 
     bigCompare(tile);
 });
+
+startAgain.addEventListener('click', function(){
+    resetGame();
+})
 

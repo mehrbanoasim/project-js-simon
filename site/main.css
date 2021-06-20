@@ -73,30 +73,55 @@ html {
   background-color: lightblue;
 }
 
-.order{
+.order1{
   text-align: center;
 }
 
-.order1{
-  text-align: center;
+.order{
+  margin-top: 20px;
 }
 
 .result{
   text-align: center;
 }
-/*.restart{
-  display: block;
+.restart{
   text-align: center;
   margin-top: 20px;
 }
 
-#reset{
-  background-color: cornflowerblue;
+.start{
+  background-color: rgb(158, 252, 252);
   border-radius: 4px;
   padding: 15px 32px;
   border: none;
-  box-shadow: 0 15px 60px rgba(0, 0, 0, 0.5);
+  /*box-shadow: 0 15px 60px rgba(0, 0, 0, 0.5);*/
   font-size: 17px;
   cursor: pointer;
+  color: rgb(51, 51, 51);
+  display: inline-block;
+}
+
+.start:hover {
+  background-color: cornflowerblue;
   color: azure;
-}*/
+}
+
+.hidden{
+  visibility: hidden;
+}
+
+.clicks{
+  text-align: center;
+}
+
+.reset{
+  background-color: rgb(158, 252, 252);
+  border-radius: 4px;
+  padding: 15px 32px;
+  border: none;
+  /*box-shadow: 0 15px 60px rgba(0, 0, 0, 0.5);*/
+  font-size: 17px;
+  cursor: pointer;
+  color: rgb(51, 51, 51);
+  display: inline-block;
+}
