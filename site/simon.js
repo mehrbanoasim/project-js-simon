@@ -7,25 +7,27 @@ let blueBox= document.getElementById("blue");
 
 
 
-let colorList = ['red','blue','blue','green'];
-let playList = [];
+let listOriginal = ['green','red','yellow','blue'];
+let listPlayer = [];
+let listColor = [];
+
+randomColor = listOriginal[Math.floor(Math.random()* listOriginal.length)];
+listColor.push(randomColor);
 
 bigBox = document.querySelector('.simon-container');
 
-/*bigBox.onclick = function(){
-    numClicked++;
-    document.querySelector('#clicktimes').innerHTML = numClicked;
-}*/
+function createColor(){
+    randomColor = listOriginal[Math.floor(Math.random()* listOriginal.length)]
+    return randomColor;
+}
 
-document.querySelector('#colors').innerHTML = colorList[0]
-let numClicked = 0;
-
-function compare(listOriginal, listPlayer){
+/*function compare(listColor, listPlayer, listOriginal){
+    createColorOrder(listOriginal, listColor);
     for(i=0; i<listPlayer.length; i++){
-        if(listPlayer[i] === listOriginal[i]){
+        if(listPlayer[i] === listColor[i]){
             document.querySelector('.result').innerHTML = 'Congrats!';
-            document.querySelector('#colors').innerHTML = listOriginal[i+1];
-            if((i+1)>=listOriginal.length){
+            document.querySelector('#colors').innerHTML = listColor;
+            if((i+1)>=listColor.length){
                 document.querySelector('.result').innerHTML = 'Congrats! You win!';
                 document.querySelector('.order').innerHTML = "No more clicks!";
             }
@@ -37,12 +39,48 @@ function compare(listOriginal, listPlayer){
 
 }
 
+function pairUp(listPlayer, listColor){
+    for(i=0; i<listPlayer.length; i++){
+        if(listPlayer[i] === listColor[i]){
+            document.querySelector('.result').innerHTML = 'Congrats!';
+            if(listPlayer.length >= listColor.length){
+                document.querySelector('.result').innerHTML = 'Congrats! You win!';
+                document.querySelector('.order').innerHTML = "No more clicks!";
+            }
+        }
+        else{
+            document.querySelector('.result').innerHTML = 'Game Over!'
+        }
+        
+    }
+}*/
+
+
+function bigCompare(tile){
+    listPlayer.push(tile);
+
+    for(i=0; i<listPlayer.length; i++) {
+        if(listPlayer[i] === listColor[i]){
+            document.querySelector('.result').innerHTML = 'Yes!';
+            if(listPlayer.length === listColor.length){
+                listPlayer = []
+                document.querySelector('.result').innerHTML = 'Congrats! Next round!';
+                listColor.push(createColor());
+                document.querySelector('#colors').innerHTML = listColor;
+            }
+        }
+        else{
+            document.querySelector('.result').innerHTML = 'Wrong tile!';
+            return;
+        }
+    }
+}
+
+document.querySelector('#colors').innerHTML = listColor;
+
 bigBox.addEventListener('click', function(event){
     tile = event.target.id;
-    console.log(tile);
-    playList.push(tile);
-    console.log(playList);
 
-    compare(colorList, playList)
-    
-})
+    bigCompare(tile);
+});
+
