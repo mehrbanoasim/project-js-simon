@@ -136,7 +136,7 @@ function startGame(){
     orderSentence.classList.remove('hidden');
     listColor.push(createColor());
     document.querySelector('#colors').innerHTML = listColor;
-    //bigBox.classList.add('unclickable');
+    bigBox.classList.remove('unclickable');
     remainClicks();
 }
 
@@ -168,6 +168,7 @@ function bigCompare(tile){
                 else{
                     document.querySelector('.result').innerHTML = 'Wrong tile!';
                     startAgain.classList.remove('hidden');
+                    bigBox.classList.add('unclickable');
                     return;
                 }
                 
@@ -176,12 +177,13 @@ function bigCompare(tile){
         else{
             document.querySelector('.result').innerHTML = 'Wrong tile!';
             startAgain.classList.remove('hidden');
+            bigBox.classList.add('unclickable');
             return;
         }
     }
 }
 
-
+bigBox.classList.add('unclickable');
 
 start.addEventListener('click', function(){
     startGame();
