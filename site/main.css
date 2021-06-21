@@ -28,12 +28,13 @@ html {
   grid-row: auto auto;
   grid-column-gap: 20px;
   grid-row-gap: 20px;
+ 
 }
 
 .simon-container .simon-button {
   align-items: center;
   background-color: #333;
-  border-radius: 10px;
+  border-radius: 50%;
   color: #fff;
   padding: 20px;
   justify-content: center;
