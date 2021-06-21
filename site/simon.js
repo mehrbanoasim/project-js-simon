@@ -24,6 +24,7 @@ function startGame(){
     orderSentence.classList.remove('hidden');
     listColor.push(createColor());
     document.querySelector('#colors').innerHTML = listColor;
+    document.querySelector('.result').innerHTML = `Round 1!`;
     bigBox.classList.remove('unclickable');
     remainClicks();
 }
@@ -48,7 +49,7 @@ function bigCompare(tile){
             if(listPlayer.length === listColor.length){
                 if(listPlayer[listPlayer.length - 1] === listColor[listColor.length - 1]){
                     listPlayer = []
-                    document.querySelector('.result').innerHTML = 'Congrats! Next round!';
+                    document.querySelector('.result').innerHTML = `Congrats! Round ${i+2}!`;
                     listColor.push(createColor());
                     document.querySelector('#colors').innerHTML = listColor;
                     remainClicks();
@@ -71,18 +72,15 @@ function bigCompare(tile){
     }
 }
 
-bigBox.classList.add('unclickable');
-
 start.addEventListener('click', function(){
     startGame();
 })
 
 bigBox.addEventListener('click', function(event){
     tile = event.target.id;
-    bigCompare(tile); //v7
+    bigCompare(tile);
 });
 
 startAgain.addEventListener('click', function(){
     resetGame();
-}) //v7
-
+})
