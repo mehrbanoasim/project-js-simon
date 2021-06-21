@@ -28,12 +28,13 @@ html {
   grid-row: auto auto;
   grid-column-gap: 20px;
   grid-row-gap: 20px;
+ 
 }
 
 .simon-container .simon-button {
   align-items: center;
   background-color: #333;
-  border-radius: 10px;
+  border-radius: 50%;
   color: #fff;
   padding: 20px;
   justify-content: center;
@@ -73,30 +74,58 @@ html {
   background-color: lightblue;
 }
 
+.navigate{
+  text-align: center;
+}
+
 .order{
   text-align: center;
 }
 
-.order1{
-  text-align: center;
-}
-
-/*.result{
+.result{
   text-align: center;
 }
 .restart{
-  display: block;
   text-align: center;
   margin-top: 20px;
 }
 
-#reset{
-  background-color: cornflowerblue;
+.start{
+  background-color: rgb(158, 252, 252);
   border-radius: 4px;
   padding: 15px 32px;
   border: none;
-  box-shadow: 0 15px 60px rgba(0, 0, 0, 0.5);
   font-size: 17px;
   cursor: pointer;
+  color: rgb(51, 51, 51);
+  display: inline-block;
+}
+
+.start:hover {
+  background-color: cornflowerblue;
   color: azure;
-}*/
+}
+
+.hidden{
+  visibility: hidden;
+}
+
+.clicks{
+  text-align: center;
+}
+
+.reset{
+  background-color: rgb(158, 252, 252);
+  border-radius: 4px;
+  padding: 15px 32px;
+  border: none;
+  font-size: 17px;
+  cursor: pointer;
+  color: rgb(51, 51, 51);
+  display: inline-block;
+}
+
+.unclickable{
+  pointer-events: none;
+}
+

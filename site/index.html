@@ -17,18 +17,27 @@
     <section id="content">
       <h1>Simon</h1>
 
-      <div class="order">Click
-        <span id='colors'></span>
-      </div>
+     <div class="navigate">
+        <button class="start">Start</button>
+        <div class="order hidden">Click
+          <span id='colors'></span>
+        </div>
+      </div> <!-- This is a new section I added-->
 
-      <div class="simon-container">
+      <div class="simon-container"> <!-- I added IDs to each button-->
         <div id = "green" class="simon-button green"></div>
         <div id = "red" class="simon-button red"></div>
         <div id = "yellow" class="simon-button yellow"></div>
         <div id = "blue" class="simon-button blue"></div>
       </div>
 
-      <div class='result'></div>
+      <div class='result'></div> <!-- This is a new section I added-->
+
+      <div class="clicks"></div> <!-- This is a new section I added-->
+
+      <div class="restart hidden">
+        <button class="reset">Restart</button>
+      </div> <!-- This is a new section I added-->
 
     </section>
 
@@ -40,5 +49,13 @@
 
     <script src="simon.js"></script>
     <script src="buttons.js"></script>
+
+    <div class="soundeffect">
+      <audio src="deep-bubble.wav"></audio>
+      <audio src="egg-bubble.wav"></audio>
+      <audio src="liquid-bubble.wav"></audio>
+      <audio src="soap-bubble.wav"></audio>
+    </div>
+
   </body>
 </html>
